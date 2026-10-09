@@ -56,8 +56,9 @@ app-misc/logiops::fuzzy-potato **
 | app-text | calibre, koodo-reader-bin |
 | dev-java | icedtea-bin, openweb-start-bin, portecle |
 | dev-lang | lazarus |
+| dev-util | intel-ocl-sdk |
 | games-emulation | emulationstation, sdlmame |
-| games-fps | ezquake |
+| games-fps | ezquake, quake2-data |
 | games-misc | fortune-mod-starwars |
 | games-strategy | augustus |
 | games-util | steamtinkerlaunch |
@@ -67,6 +68,7 @@ app-misc/logiops::fuzzy-potato **
 | media-sound | easyeffects |
 | net-misc | sunshine |
 | sys-auth | fprintd-clients, open-fprintd, python-validity |
+| sys-fs | avfs |
 | x11-terms | tabby-bin |
 
 Available versions can be listed with `equery list -po '*::fuzzy-potato'`
