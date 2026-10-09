@@ -41,7 +41,7 @@ Many ebuilds are keyworded `~amd64` (or have no keywords at all, like the
 `/etc/portage/package.accept_keywords`, for example:
 
 ```
-net-misc/sunshine::fuzzy-potato **
+app-misc/logiops::fuzzy-potato **
 ```
 
 ## Packages
@@ -50,46 +50,26 @@ net-misc/sunshine::fuzzy-potato **
 |---|---|
 | app-crypt | xsum |
 | app-editors | scite |
-| app-emulation | docker, x48ng |
-| app-misc | broot, logiops, worker |
+| app-emulation | x48ng |
+| app-misc | logiops, worker |
 | app-portage | gcc-switcher |
 | app-text | calibre, koodo-reader-bin |
 | dev-java | icedtea-bin, openweb-start-bin, portecle |
-| dev-lang | lazarus, powershell-bin |
-| dev-libs | openssl, pkcs11-helper, rocm-comgr, rocm-device-libs, rocm-opencl-runtime, rocr-runtime, roct-thunk-interface |
-| dev-tcltk | tcllib |
-| dev-util | heroku, intel-ocl-sdk, mesa_clc |
-| games-board | stockfish |
+| dev-lang | lazarus |
 | games-emulation | emulationstation, sdlmame |
-| games-fps | crispy-doom, ezquake, quake2-data |
+| games-fps | ezquake |
 | games-misc | fortune-mod-starwars |
 | games-strategy | augustus |
 | games-util | steamtinkerlaunch |
 | gui-apps | quickshell |
 | hypr-dotfiles | illogical-impulse |
 | kde-misc | wallpaper-engine-kde-plugin |
-| media-fonts | croscorefonts |
-| media-gfx | mandelbulber |
-| media-libs | libmysofa, mesa, oidn |
-| media-plugins | gst-plugins-vaapi |
-| media-sound | alsa-scarlett-gui, easyeffects |
-| net-fs | nfs-utils, samba |
-| net-im | discord |
-| net-misc | icaclient, sunshine |
+| media-sound | easyeffects |
 | sys-auth | fprintd-clients, open-fprintd, python-validity |
-| sys-boot | mokutil |
-| sys-fs | avfs, gcsfuse |
-| virtual | jdk, jre |
 | x11-terms | tabby-bin |
 
 Available versions can be listed with `equery list -po '*::fuzzy-potato'`
 (from `app-portage/gentoolkit`) or by browsing the overlay directories.
-
-## Eclasses
-
-The overlay ships a few eclasses used by its own ebuilds (`eclass/`), including
-`dotnet`, `nuget`, `mono-env`, `libretro`, `libretro-core`, `golang-base-r1`,
-`font-r1` and others.
 
 ## Issues
 
