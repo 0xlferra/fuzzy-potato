@@ -1,22 +1,22 @@
 # fuzzy-potato
 
-Overlay Gentoo personale: ebuild che non sono nel tree ufficiale, versioni più
-recenti (o più vecchie) di pacchetti esistenti, live ebuild `-9999` e qualche
-pacchetto binario.
+Personal Gentoo overlay: ebuilds that are not in the main tree, newer (or
+older) versions of existing packages, live `-9999` ebuilds and a few binary
+packages.
 
-Nessuna garanzia: gli ebuild sono pensati per uso personale e possono essere
-non testati, obsoleti o rotti.
+No guarantees: these ebuilds are meant for personal use and may be untested,
+outdated or broken.
 
-## Installazione
+## Installation
 
-Con `eselect repository` (pacchetto `app-eselect/eselect-repository`):
+With `eselect repository` (package `app-eselect/eselect-repository`):
 
 ```sh
 eselect repository add fuzzy-potato git https://github.com/0xlferra/fuzzy-potato.git
 emaint sync -r fuzzy-potato
 ```
 
-Oppure a mano, creando `/etc/portage/repos.conf/fuzzy-potato.conf`:
+Or manually, by creating `/etc/portage/repos.conf/fuzzy-potato.conf`:
 
 ```ini
 [fuzzy-potato]
@@ -26,26 +26,27 @@ sync-uri = https://github.com/0xlferra/fuzzy-potato.git
 auto-sync = yes
 ```
 
-e poi `emaint sync -r fuzzy-potato`.
+and then running `emaint sync -r fuzzy-potato`.
 
-## Uso
+## Usage
 
-Per installare un pacchetto dall'overlay:
+To install a package from the overlay:
 
 ```sh
-emerge -av categoria/pacchetto::fuzzy-potato
+emerge -av category/package::fuzzy-potato
 ```
 
-Molti ebuild sono in `~amd64` (o senza keyword, come i `-9999`), quindi
-potrebbe servire aggiungerli a `/etc/portage/package.accept_keywords`, ad esempio:
+Many ebuilds are keyworded `~amd64` (or have no keywords at all, like the
+`-9999` ones), so you may need to add them to
+`/etc/portage/package.accept_keywords`, for example:
 
 ```
 net-misc/sunshine::fuzzy-potato **
 ```
 
-## Pacchetti
+## Packages
 
-| Categoria | Pacchetti |
+| Category | Packages |
 |---|---|
 | app-crypt | xsum |
 | app-editors | scite |
@@ -81,15 +82,15 @@ net-misc/sunshine::fuzzy-potato **
 | virtual | jdk, jre |
 | x11-terms | tabby-bin |
 
-Le versioni disponibili si vedono con `equery list -po '*::fuzzy-potato'`
-(da `app-portage/gentoolkit`) o direttamente nelle directory dell'overlay.
+Available versions can be listed with `equery list -po '*::fuzzy-potato'`
+(from `app-portage/gentoolkit`) or by browsing the overlay directories.
 
-## Eclass
+## Eclasses
 
-L'overlay include alcune eclass usate dai propri ebuild (`eclass/`), tra cui
+The overlay ships a few eclasses used by its own ebuilds (`eclass/`), including
 `dotnet`, `nuget`, `mono-env`, `libretro`, `libretro-core`, `golang-base-r1`,
-`font-r1` e altre.
+`font-r1` and others.
 
-## Segnalazioni
+## Issues
 
-Problemi e suggerimenti: <https://github.com/0xlferra/fuzzy-potato/issues>
+Bug reports and suggestions: <https://github.com/0xlferra/fuzzy-potato/issues>
