@@ -65,6 +65,7 @@ app-misc/logiops::fuzzy-potato **
 | hypr-dotfiles | illogical-impulse |
 | kde-misc | wallpaper-engine-kde-plugin |
 | media-sound | easyeffects |
+| net-misc | sunshine |
 | sys-auth | fprintd-clients, open-fprintd, python-validity |
 | x11-terms | tabby-bin |
 
