@@ -185,7 +185,7 @@ RDEPEND="
 DEPEND="
 	${CDEPEND}
 	dev-cpp/nlohmann_json
-	>=media-libs/amf-headers-1.4.36-r1
+	>=media-libs/amf-headers-1.5.3
 	=media-libs/nv-codec-headers-13*
 	cuda? (
 		>=dev-util/nvidia-cuda-toolkit-12
