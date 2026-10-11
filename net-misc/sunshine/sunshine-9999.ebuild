@@ -247,8 +247,10 @@ src_unpack() {
 		local EGIT_REPO_URI="https://git.ffmpeg.org/ffmpeg.git"
 		local EGIT_SUBMODULES=( '-*' )
 		local EGIT_CHECKOUT_DIR=${S}/third-party/build-deps/third-party/FFmpeg/FFmpeg
-		local EGIT_COMMIT=$(git --git-dir=build-deps/.git rev-parse HEAD:third-party/FFmpeg/FFmpeg)
-		local EGIT_BRANCH=release/$(ver_cut 1-2 ${FFMPEG_VERSION})
+		# Pin the commit and branch build-deps uses, which may be ahead of FFMPEG_VERSION.
+		local build_deps_git=( git --git-dir="${S}"/third-party/build-deps/.git ) EGIT_COMMIT EGIT_BRANCH
+		EGIT_COMMIT=$("${build_deps_git[@]}" rev-parse HEAD:third-party/FFmpeg/FFmpeg) || die
+		EGIT_BRANCH=$("${build_deps_git[@]}" config --blob HEAD:.gitmodules submodule.third-party/FFmpeg/FFmpeg.branch) || die
 		git-r3_src_unpack
 
 		local EGIT_REPO_URI="https://github.com/LizardByte/Sunshine.git"
@@ -296,9 +298,11 @@ src_configure() {
 		-DBUILD_FFMPEG_ALL_PATCHES=yes
 		-DBUILD_FFMPEG_AMF=no
 		-DBUILD_FFMPEG_CBS=yes
+		-DBUILD_FFMPEG_DAV1D=no
 		-DBUILD_FFMPEG_LIBVA=no
 		-DBUILD_FFMPEG_MF=no
 		-DBUILD_FFMPEG_NV_CODEC_HEADERS=no
+		-DBUILD_FFMPEG_OPUS=no
 		-DBUILD_FFMPEG_SVT_AV1=no
 		-DBUILD_FFMPEG_VULKAN=no
 		-DBUILD_FFMPEG_X264=no
